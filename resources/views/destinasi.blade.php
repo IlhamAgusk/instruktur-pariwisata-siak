@@ -29,7 +29,7 @@
                 <button type="submit" class="btn btn-primary">Cari</button>
             </div>
         </form>
-
+        
         <div class="row g-4">
             @forelse ($destinasiList as $destinasi)
                 @php
@@ -58,9 +58,11 @@
                 </div>
             @endforelse
         </div>
+
         <div class="d-flex justify-content-center mt-4">
             {{ $destinasiList->appends(['cari' => $keyword])->links() }}
         </div>
+
     </div>
 </section>
 
