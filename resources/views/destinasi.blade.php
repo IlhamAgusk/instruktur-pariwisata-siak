@@ -21,6 +21,15 @@
 <!-- Grid Destinasi -->
 <section class="destinasi">
     <div class="container">
+
+        <form action="{{ route('destinasi') }}" method="GET" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="cari" class="form-control"
+                       placeholder="Cari nama destinasi..." value="{{ $keyword ?? '' }}">
+                <button type="submit" class="btn btn-primary">Cari</button>
+            </div>
+        </form>
+
         <div class="row g-4">
             @forelse ($destinasiList as $destinasi)
                 @php
@@ -48,6 +57,9 @@
                     <p class="text-center">Belum ada destinasi yang ditambahkan.</p>
                 </div>
             @endforelse
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            {{ $destinasiList->appends(['cari' => $keyword])->links() }}
         </div>
     </div>
 </section>
