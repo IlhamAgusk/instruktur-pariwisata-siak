@@ -18,4 +18,9 @@ class Atraksi extends Model
         'harga',
         'gambar',
     ];
+
+    public function destinasi()
+    {
+        return $this->belongsTo(Destinasi::class);
+    }
 }

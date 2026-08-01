@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Atraksi;
+use App\Models\Destinasi;
 use Illuminate\Http\Request;
 
 class AtraksiController extends Controller
@@ -16,12 +17,15 @@ class AtraksiController extends Controller
 
     public function create()
     {
-        return view('atraksi-create');
+        $destinasiList = Destinasi::all();
+
+        return view('atraksi-create', compact('destinasiList'));
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'destinasi_id' => 'required|exists:destinasi,id',
             'nama' => 'required|min:3',
             'deskripsi' => 'required',
             'kategori' => 'required',
@@ -38,8 +42,9 @@ class AtraksiController extends Controller
     public function edit($id)
     {
         $atraksi = Atraksi::findOrFail($id);
+        $destinasiList = Destinasi::all();
 
-        return view('atraksi-edit', compact('atraksi'));
+        return view('atraksi-edit', compact('atraksi', 'destinasiList'));
     }
 
     public function update(Request $request, $id)

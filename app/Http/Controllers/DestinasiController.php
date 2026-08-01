@@ -22,7 +22,7 @@ class DestinasiController extends Controller
 
     public function show($id)
     {
-        $destinasi = Destinasi::findOrFail($id);
+        $destinasi = Destinasi::with('atraksi')->findOrFail($id);
 
         $destinasiTerkait = Destinasi::where('id', '!=', $destinasi->id)
             ->inRandomOrder()

@@ -86,6 +86,27 @@
                         </iframe>
                     </div>
                 </div>
+
+                <div class="detail-atraksi mt-5">
+                    <span class="section-eyebrow">&#9670; Atraksi Tersedia</span>
+                    <h2 class="section-title">Atraksi di Destinasi Ini</h2>
+
+                    <div class="row g-3">
+                        @forelse ($destinasi->atraksi as $atraksi)
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <img src="{{ asset('images/' . $atraksi->gambar) }}" class="card-img-top" alt="{{ $atraksi->nama }}">
+                                    <div class="card-body">
+                                        <h6 class="card-title">{{ $atraksi->nama }}</h6>
+                                        <span class="badge bg-secondary">{{ $atraksi->kategori }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <p class="text-muted">Belum ada atraksi untuk destinasi ini.</p>
+                        @endforelse
+                    </div>
+                </div>
             </div>
 
             <div class="col-lg-4">
