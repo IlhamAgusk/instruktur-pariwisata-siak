@@ -52,6 +52,11 @@
                     <input type="text" name="lokasi" class="form-control" value="{{ $destinasi->lokasi }}">
                 </div>
 
+                <div class="mb-4">
+                    <label class="form-label">Harga Tiket (Rp)</label>
+                    <input type="number" name="harga_tiket" class="form-control" value="{{ $destinasi->harga_tiket }}" min="0">
+                </div>
+
                 <button type="submit" class="btn-cta">Simpan Perubahan</button>
                 <a href="{{ route('destinasi.detail', $destinasi->id) }}" class="btn-outline-detail">Batal</a>
 

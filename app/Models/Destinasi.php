@@ -18,5 +18,6 @@ class Destinasi extends Model
         'jam_buka',
         'jam_tutup',
         'lokasi',
+        'harga_tiket',
     ];
 }

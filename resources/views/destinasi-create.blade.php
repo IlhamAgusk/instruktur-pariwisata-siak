@@ -52,6 +52,11 @@
                     <input type="text" name="lokasi" class="form-control" placeholder="contoh: Kecamatan Siak, Kabupaten Siak">
                 </div>
 
+                <div class="mb-4">
+                    <label class="form-label">Harga Tiket (Rp)</label>
+                    <input type="number" name="harga_tiket" class="form-control" placeholder="contoh: 10000" min="0">
+                </div>
+
                 <button type="submit" class="btn-cta">Simpan Destinasi</button>
                 <a href="{{ route('destinasi') }}" class="btn-outline-detail">Batal</a>
 
