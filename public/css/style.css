@@ -10,18 +10,6 @@ body {
   line-height: 1.6;
 }
 
-/* =====           Navbar           ===== */
-.navbar-nav .nav-link {
-    color: #ffffff !important;
-    opacity: 0.85;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #ffffff !important;
-    opacity: 1;
-    text-decoration: underline;
-}
-
 /* ===== Design tokens ===== */
 :root {
   --c-primary: #0E3B36;
@@ -32,7 +20,7 @@ body {
   --c-text: #1C2620;
 }
 
-/* ===== Topbar ===== */
+/* =====           Topbar           ===== */
 .topbar {
   background-color: var(--c-primary-dark);
   color: #d9e3d9;
@@ -68,7 +56,7 @@ body {
   color: var(--c-gold-light);
 }
 
-/* ===== Main navbar ===== */
+/* =====           Main navbar           ===== */
 .main-navbar {
   background-color: #ffffff;
   border-bottom: 2px solid var(--c-gold);
@@ -152,6 +140,7 @@ body {
   text-decoration: none;
   transition: background-color 0.2s ease, transform 0.15s ease;
   display: inline-block;
+  margin-bottom: 14px;
 }
 
 .btn-cta:hover {
@@ -159,7 +148,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* ===== Mobile ===== */
 @media (max-width: 991px) {
   .topbar { padding: 6px 20px; }
   .main-navbar { padding: 14px 20px; }
@@ -190,7 +178,6 @@ body {
   );
 }
 
-/* pola garis tipis biar background tidak polos kosong */
 .hero-pattern {
   position: absolute;
   inset: 0;
@@ -254,13 +241,6 @@ body {
   font-size: 13px;
   color: #cdd9d4;
   margin: 0;
-}
-
-@media (max-width: 991px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
 }
 
 .hero-eyebrow {
@@ -352,6 +332,13 @@ body {
 @keyframes heroBounce {
   0%, 100% { transform: translate(-50%, 0); }
   50% { transform: translate(-50%, 8px); }
+}
+
+@media (max-width: 991px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -480,7 +467,7 @@ body {
   }
 }
 
-/* =====           Destinasi           ===== */
+/* =====           Destinasi (Beranda)           ===== */
 .destinasi {
   background-color: var(--c-cream);
   padding: 100px 0;
@@ -796,7 +783,7 @@ body {
   .site-footer { padding: 48px 0 20px; }
 }
 
-/* =====           CSS Custom Halaman Destinasi           ===== */
+/* =====           Halaman Destinasi (header, breadcrumb)           ===== */
 .page-header {
   background-color: var(--c-cream);
   padding: 60px 0 40px;
@@ -832,52 +819,6 @@ body {
 .breadcrumb-custom span {
   color: #8a938c;
   margin: 0 6px;
-}
-
-/* Grid destinasi (versi lengkap dgn deskripsi + button) */
-.destinasi-card-full {
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 100%;
-  box-shadow: 0 4px 16px rgba(9, 40, 36, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.destinasi-card-full:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(9, 40, 36, 0.15);
-}
-
-.destinasi-card-full .destinasi-img-wrap img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.destinasi-img-wrap {
-  position: relative;
-  overflow: hidden;
-}
-
-.destinasi-body {
-  padding: 24px 22px;
-  text-align: center;
-}
-
-.destinasi-body h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: var(--c-primary);
-  margin-bottom: 10px;
-}
-
-.destinasi-body p {
-  font-family: 'Inter', sans-serif;
-  font-size: 14.5px;
-  color: #5a635d;
-  margin-bottom: 18px;
 }
 
 /* Keunggulan */
@@ -954,14 +895,10 @@ body {
   .cta-penutup { padding: 60px 0; }
 }
 
-/* =====           CSS Custom Halaman Tentang           ===== */
+/* =====           Halaman Tentang           ===== */
 .sejarah {
   padding: 100px 0;
   background-color: #ffffff;
-}
-
-@media (max-width: 991px) {
-  .sejarah { padding: 70px 0; }
 }
 
 .profil-daerah {
@@ -989,10 +926,6 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 13.5px;
   color: #6b746e;
-}
-
-@media (max-width: 767px) {
-  .profil-daerah { padding: 60px 0; }
 }
 
 .visi-wisata {
@@ -1036,10 +969,6 @@ body {
   line-height: 1.7;
 }
 
-@media (max-width: 767px) {
-  .visi-wisata { padding: 60px 0; }
-}
-
 .budaya {
   padding: 100px 0;
   background-color: var(--c-cream);
@@ -1050,10 +979,16 @@ body {
 }
 
 @media (max-width: 991px) {
+  .sejarah { padding: 70px 0; }
   .budaya { padding: 70px 0; }
 }
 
-/* =====           CSS Custom Halaman Detail Destinasi           ===== */
+@media (max-width: 767px) {
+  .profil-daerah { padding: 60px 0; }
+  .visi-wisata { padding: 60px 0; }
+}
+
+/* =====           Halaman Detail Destinasi           ===== */
 .detail-hero {
   position: relative;
   min-height: 380px;
@@ -1197,11 +1132,6 @@ body {
   color: #ffffff !important;
 }
 
-@media (max-width: 991px) {
-  .destinasi-detail { padding: 60px 0; }
-  .detail-info-card { position: static; margin-top: 20px; }
-}
-
 .detail-fasilitas {
   margin-top: 48px;
 }
@@ -1240,6 +1170,11 @@ body {
   height: 320px;
   border: 0;
   display: block;
+}
+
+@media (max-width: 991px) {
+  .destinasi-detail { padding: 60px 0; }
+  .detail-info-card { position: static; margin-top: 20px; }
 }
 
 /* Destinasi Terkait */
@@ -1318,4 +1253,534 @@ body {
   .terkait { padding: 60px 0; }
   .terkait-card { flex-direction: column; }
   .terkait-img-wrap { flex: none; height: 180px; }
+}
+
+/* =====           Search Box Destinasi           ===== */
+.search-box-wrap {
+  margin-bottom: 44px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #e0e5e2;
+  border-radius: 50px;
+  padding: 6px 6px 6px 22px;
+  max-width: 620px;
+  margin: 0 auto;
+  box-shadow: 0 6px 20px rgba(9, 40, 36, 0.06);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--c-gold);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.18);
+}
+
+.search-box-icon {
+  color: var(--c-gold);
+  font-size: 17px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.search-box-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  color: var(--c-text);
+  padding: 10px 0;
+}
+
+.search-box-input::placeholder {
+  color: #a3aca6;
+}
+
+.search-box-btn {
+  background-color: var(--c-primary);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border: 0;
+  padding: 11px 26px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.search-box-btn:hover {
+  background-color: var(--c-primary-dark);
+}
+
+.search-result-info {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: #6b746e;
+  margin-top: 16px;
+}
+
+.search-result-info strong {
+  color: var(--c-primary);
+}
+
+.search-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 12px;
+  color: #b23b3b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.search-reset:hover {
+  color: #8f2c2c;
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .search-box {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 18px;
+    padding: 16px;
+    gap: 10px;
+  }
+  .search-box-icon { display: none; }
+  .search-box-input {
+    width: 100%;
+    padding: 10px 4px;
+  }
+  .search-box-btn {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 8px;
+  }
+}
+
+/* =====           Destinasi Slider (1 per tampilan)           ===== */
+.destinasi-slider {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.destinasi-slide {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(9, 40, 36, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+}
+
+.destinasi-slide-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.destinasi-slide-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.destinasi-slide-body {
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.destinasi-slide-body .btn-cta {
+  align-self: flex-start;
+}
+
+.slide-index {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: 14px;
+}
+
+.destinasi-slide-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--c-primary);
+  margin-bottom: 16px;
+}
+
+.destinasi-slide-body p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #5a635d;
+  margin-bottom: 28px;
+}
+
+.destinasi-slide-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: #8a938c;
+}
+
+.destinasi-slide-empty i {
+  font-size: 32px;
+  color: var(--c-gold);
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .destinasi-slide {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .destinasi-slide-img { height: 240px; }
+  .destinasi-slide-body { padding: 32px 24px; }
+}
+
+/* Navigasi Slider */
+.slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.slider-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--c-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.slider-btn:hover {
+  background-color: var(--c-primary-dark);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.slider-btn-disabled {
+  background-color: #e0e5e2;
+  color: #a3aca6;
+  cursor: not-allowed;
+}
+
+.slider-btn-disabled:hover {
+  transform: none;
+}
+
+.slider-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 320px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #d8ded9;
+  transition: all 0.2s ease;
+}
+
+.slider-dot:hover {
+  background-color: var(--c-gold-light);
+}
+
+.slider-dot.active {
+  background-color: var(--c-gold);
+  width: 26px;
+  border-radius: 6px;
+}
+
+@media (max-width: 576px) {
+  .slider-nav { gap: 14px; }
+  .slider-btn { width: 40px; height: 40px; font-size: 15px; }
+}
+
+/* =====           Admin - Tabel User           ===== */
+.table-wrap-custom {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #eef1ef;
+  box-shadow: 0 8px 26px rgba(9, 40, 36, 0.08);
+  overflow: hidden;
+}
+
+.table-custom {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.table-custom thead th {
+  background-color: var(--c-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  text-align: left;
+  border: 0;
+}
+
+.table-custom thead th.text-center {
+  text-align: center;
+}
+
+.table-custom tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eef1ef;
+  color: var(--c-text);
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+.table-custom tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table-custom tbody tr:nth-child(even) {
+  background-color: #fbfbfa;
+}
+
+.table-custom tbody tr:hover {
+  background-color: var(--c-cream);
+}
+
+.role-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.role-badge-admin {
+  background-color: rgba(201, 162, 39, 0.15);
+  color: #8a6d13;
+  border: 1px solid var(--c-gold);
+}
+
+.role-badge-user {
+  background-color: rgba(14, 59, 54, 0.08);
+  color: var(--c-primary);
+  border: 1px solid #cfe0dc;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-table {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #ffffff;
+  white-space: nowrap;
+}
+
+.btn-table-edit {
+  border-color: var(--c-primary);
+  color: var(--c-primary);
+}
+
+.btn-table-edit:hover {
+  background-color: var(--c-primary);
+  color: #ffffff;
+}
+
+.btn-table-delete {
+  border-color: #e0aeae;
+  color: #b23b3b;
+}
+
+.btn-table-delete:hover {
+  background-color: #b23b3b;
+  border-color: #b23b3b;
+  color: #ffffff;
+}
+
+.table-empty-row td {
+  text-align: center;
+  padding: 56px 20px;
+  color: #8a938c;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+/* =====           Form Validation (global)           ===== */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #b23b3b;
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+  border-color: #b23b3b;
+  box-shadow: 0 0 0 0.2rem rgba(178, 59, 59, 0.15);
+}
+
+.invalid-feedback {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  color: #b23b3b;
+  margin-top: 5px;
+}
+
+/* =====           Atraksi - Card Admin           ===== */
+.atraksi-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #eef1ef;
+  box-shadow: 0 8px 24px rgba(9, 40, 36, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.atraksi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(9, 40, 36, 0.13);
+}
+
+.atraksi-card-body {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kategori-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.kategori-budaya {
+  background-color: rgba(201, 162, 39, 0.15);
+  color: #8a6d13;
+  border: 1px solid var(--c-gold);
+}
+
+.kategori-alam {
+  background-color: rgba(14, 59, 54, 0.08);
+  color: var(--c-primary);
+  border: 1px solid #cfe0dc;
+}
+
+.kategori-kuliner {
+  background-color: rgba(181, 101, 29, 0.12);
+  color: #8a4f16;
+  border: 1px solid #d9a06c;
+}
+
+.atraksi-card-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--c-primary);
+  margin-bottom: 10px;
+}
+
+.atraksi-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #5a635d;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.atraksi-card-price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--c-primary);
+  margin-bottom: 18px;
+}
+
+.atraksi-card-price.gratis {
+  color: #2f7a5c;
+}
+
+.atraksi-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.atraksi-card-actions form {
+  flex: 1;
+}
+
+.atraksi-card-actions .btn-table {
+  width: 100%;
+  justify-content: center;
+}
+
+.atraksi-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #8a938c;
+  font-family: 'Inter', sans-serif;
+}
+
+.atraksi-empty i {
+  font-size: 28px;
+  color: var(--c-gold);
+  margin-bottom: 10px;
+  display: inline-block;
 }

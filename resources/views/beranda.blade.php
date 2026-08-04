@@ -12,27 +12,6 @@
         } else {
             $ucapan = "Selamat Malam";
         }
-
-    // Destinasi 1: Air Terjun Contoh (08.00 - 17.00)
-    if ($jamSekarang >= 8 && $jamSekarang < 17) {
-        $status1 = "Sedang Buka";
-    } else {
-        $status1 = "Sudah Tutup";
-    }
-
-    // Destinasi 2: Istana Bersejarah (09.00 - 16.00)
-    if ($jamSekarang >= 9 && $jamSekarang < 16) {
-        $status2 = "Sedang Buka";
-    } else {
-        $status2 = "Sudah Tutup";
-    }
-
-    // Destinasi 3: Pantai Contoh Indah (06.00 - 18.00)
-    if ($jamSekarang >= 6 && $jamSekarang < 18) {
-        $status3 = "Sedang Buka";
-    } else {
-        $status3 = "Sudah Tutup";
-    }
 ?>
 
 @extends('layouts.app')
@@ -138,39 +117,30 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="destinasi-card">
-                        <a href="{{ route('destinasi') }}"><img src="{{ asset('images/air-terjun.jpg') }}" alt="Foto Air Terjun Contoh"></a>
-                        <span class="status-badge <?php echo $status1 == 'Sedang Buka' ? 'status-buka' : 'status-tutup'; ?>">
-                            <?php echo $status1; ?>
-                        </span>
-                        <div class="destinasi-overlay">
-                            <h3>Air Terjun</h3>
+                @forelse ($destinasiList as $destinasi)
+                    @php
+                        $jamSekarang = date('H:i:s');
+                        $status = ($jamSekarang >= $destinasi->jam_buka && $jamSekarang < $destinasi->jam_tutup)
+                            ? 'Sedang Buka' : 'Sudah Tutup';
+                    @endphp
+                    <div class="col-md-4">
+                        <div class="destinasi-card">
+                            <a href="{{ route('destinasi') }}">
+                                <img src="{{ asset('images/' . $destinasi->gambar) }}" alt="Foto {{ $destinasi->nama }}">
+                            </a>
+                            <span class="status-badge {{ $status == 'Sedang Buka' ? 'status-buka' : 'status-tutup' }}">
+                                {{ $status }}
+                            </span>
+                            <div class="destinasi-overlay">
+                                <h3>{{ $destinasi->nama }}</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="destinasi-card">
-                        <a href="{{ route('destinasi') }}"><img src="{{ asset('images/istana-bersejarah.jpg') }}" alt="Foto Istana Bersejarah"></a>
-                        <span class="status-badge <?php echo $status2 == 'Sedang Buka' ? 'status-buka' : 'status-tutup'; ?>">
-                            <?php echo $status2; ?>
-                        </span>
-                        <div class="destinasi-overlay">
-                            <h3>Istana Bersejarah</h3>
-                        </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center">Belum ada destinasi yang ditambahkan.</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="destinasi-card">
-                        <a href="{{ route('destinasi') }}"><img src="{{ asset('images/pantai.jpg') }}" alt="Foto Pantai Contoh Indah"></a>
-                        <span class="status-badge <?php echo $status3 == 'Sedang Buka' ? 'status-buka' : 'status-tutup'; ?>">
-                            <?php echo $status3; ?>
-                        </span>
-                        <div class="destinasi-overlay">
-                            <h3>Pantai Indah</h3>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>

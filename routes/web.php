@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AtraksiController;
+use App\Models\Destinasi;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,8 @@ use App\Http\Controllers\AtraksiController;
 */
 
 Route::get('/', function () {
-    return view('beranda');
+    $destinasiList = Destinasi::latest()->take(3)->get();
+    return view('beranda', compact('destinasiList'));
 })->name('beranda');
 
 Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi');

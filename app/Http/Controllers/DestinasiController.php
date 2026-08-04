@@ -15,7 +15,7 @@ class DestinasiController extends Controller
                 $query->where('nama', 'like', '%' . $keyword . '%');
             })
             ->latest()
-            ->paginate(2);
+            ->paginate(1);
 
         return view('destinasi', compact('destinasiList', 'keyword'));
     }

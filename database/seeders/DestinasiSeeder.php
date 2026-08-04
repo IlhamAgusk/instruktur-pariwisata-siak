@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Destinasi;
+use App\Models\Destinasi; 
 
 class DestinasiSeeder extends Seeder
 {
